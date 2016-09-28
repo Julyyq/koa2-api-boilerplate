@@ -3,20 +3,20 @@
  * Module dependencies.
  */
 
-var responseTime = require('koa-response-time');
-var ratelimit = require('koa-ratelimit');
-var compress = require('koa-compress');
-var logger = require('koa-logger');
-var router = require('koa-router');
-var load = require('./lib/load');
-var redis = require('redis');
-var koa = require('koa');
+const responseTime = require('koa-response-time');
+const ratelimit = require('koa-ratelimit');
+const compress = require('koa-compress');
+const logger = require('koa-logger');
+const router = require('koa-router');
+const load = require('./lib/load');
+const redis = require('redis');
+const Koa = require('koa');
 
 /**
  * Environment.
  */
 
-var env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'development';
 
 /**
  * Expose `api()`.
@@ -34,7 +34,7 @@ module.exports = api;
 
 function api(opts) {
   opts = opts || {};
-  var app = koa();
+  const app = new Koa();
 
   // logging
 
